@@ -440,9 +440,9 @@ def check(prob, ans)
 # ,473 => 35856681704365
 
   if ans == answers[prob]
-    puts "YOU DID IT"
+    puts "\n\e[32mCORRECT\e[0m"
   else
-    puts "YOU DIDN'T DO IT"
+    puts "\n\e[31mINCORRECT\nYOUR ANSWER: #{ans} \e[0m"
   end
 
 end
