@@ -1,4 +1,4 @@
-require_relative "check"
+require_relative "master_check"
 
 # 2520 is the smallest number that can be
 # divided by each of the numbers from 1 to 10
@@ -17,4 +17,4 @@ end
 script = $0
 prob = script[0..2].to_i
 
-check(prob, x)
+master_check(x)

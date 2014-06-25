@@ -1,4 +1,4 @@
-require_relative "check"
+require_relative "master_check"
 
 # A palindromic number reads the same both ways.
 # The largest palindrome made from the product
@@ -24,4 +24,4 @@ highest_pal = palindromes.sort![-1]
 script = $0
 prob = script[0..2].to_i
 
-check(prob, highest_pal)
+master_check(highest_pal)
