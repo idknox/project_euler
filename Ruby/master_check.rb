@@ -1,9 +1,8 @@
 require_relative "check"
 
 def master_check(ans)
+  filename = $0
+  problem_number = filename.match(/00\d+/).to_s.to_i
 
-  script = $0
-  prob = script[0..2].to_i
-  (1..prob).each {|num| check(num, ans) }
-
+  check(problem_number, ans)
 end

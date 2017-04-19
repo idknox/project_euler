@@ -1,18 +1,20 @@
-require_relative "check"
+require_relative "master_check"
 
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number
 # 600851475143?
-ar = []
-(2..(600851475143/2)).each do |num|
-  if 600851475143 % num == 0
-    if (2...num).all? {|number| num % number != 0 }
-      ar.push(num)
-    end
-  end
+
+def factor?(num)
+  @max % num == 0
 end
 
-script = $0
-prob = script[0..2].to_i
+def prime?(num)
+  (2...num).all? { |number| num % number != 0 }
+end
 
-check(prob, ar[-1])
+@max = 600851475143
+ceiling = (@max ** 0.5).to_int
+prime_factors = (2..ceiling).select { |num| factor?(num) && prime?(num) }
+largest_prime = prime_factors.last
+
+master_check(largest_prime)
