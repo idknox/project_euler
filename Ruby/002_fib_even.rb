@@ -8,16 +8,20 @@ require_relative "master_check"
 # whose values do not exceed four million, find the
 # sum of the even-valued terms.
 
-first = 1
-second = 2
-sum = 2
+def fib(first, second)
+  temp_sum = first + second
+  @sum += temp_sum if (temp_sum % 2).zero?
+  first = second
+  second = temp_sum
 
-while second <= 4000000
-  second = first + second
-  first = second-first
-  if second % 2 == 0
-    sum += second
-  end
+  fib(first, second) if temp_sum < 4000000
 end
 
-master_check(sum)
+first = 0
+second = 1
+@sum = 0
+
+fib(first, second)
+
+master_check(@sum)
+

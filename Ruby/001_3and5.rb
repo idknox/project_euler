@@ -5,12 +5,9 @@ require_relative "master_check"
 # and 9. The sum of these multiples is 23. Find
 # the sum of all the multiples of 3 or 5 below 1000.
 
-sum = 0
-
-(3...1000).each do |num|
-  if num % 3 == 0 || num % 5 == 0
-    sum += num
-  end
+def multiple_sum
+  multiples = (3...1000).select {|num| num % 3 == 0 || num % 5 == 0 }
+  multiples.reduce(:+)
 end
 
-master_check(sum)
+master_check(multiple_sum)
